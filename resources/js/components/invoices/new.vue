@@ -2,6 +2,8 @@
 import { onMounted, ref } from "vue"
 import { useRouter } from "vue-router"
 
+const router = useRouter()
+
 let form = ref([])
 let allcustomers = ref([])
 let customer_id = ref([])
@@ -10,7 +12,6 @@ let listCart = ref([])
 
 const showModal = ref(false)
 const hideModal = ref(true)
-
 let listproducts = ref([])
 
 
@@ -58,7 +59,6 @@ const closeModal = () => {
 
 const getproducts = async () => {
     let response = await axios.get('/api/products')
-    //console.log('products', response)
     listproducts.value = response.data.products
 }
 
